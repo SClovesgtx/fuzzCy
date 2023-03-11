@@ -47,5 +47,16 @@ help:
 # User Commands # re-runs unit tests when a file in your project changes
 #################
 
+build:
+	easycython src/core/levenshtein.pyx
+	python3 setup.py build_ext -if
+
+clean:
+	rm -rf __pychace__
+	rm -f *.so
+	rm -f src/core/*.c
+	rm -rf build
+	rm -f src/core/*.html
+
 test:
 	$ pytest -v --cache-clear --disable-warnings tests/
