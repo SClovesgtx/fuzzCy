@@ -19,7 +19,6 @@ isort = "^5.12.0"
 bandit = "^1.7.4"
 pytest = "^7.2.2"
 ipykernel = "^6.21.3"
-cython-lint = "^0.13.0"
 easycython = "^1.0.7"
 
 [build-system]
