@@ -9,7 +9,6 @@ from setuptools import Extension, setup
 
 directory_path = os.path.dirname(os.path.abspath(__file__))
 
-
 ext_data = {
     "core.levenshtein": {
         "sources": [join(directory_path, "src", "core", "levenshtein.pyx")],
