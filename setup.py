@@ -1,14 +1,37 @@
-from distutils.core import Extension, setup
+import os
+from os.path import join
 
+import numpy as np
 from Cython.Build import cythonize
+from setuptools import Extension, setup
 
-exts = cythonize(
-    [
-        Extension(
-            "levenshtein_import",
-            sources=["src/core/levenshtein.c", "levenshtein_import.pyx"],
-        )
-    ]
+# code from https://github.com/rafaelpsilva07/cython_package_example
+
+directory_path = os.path.dirname(os.path.abspath(__file__))
+
+
+ext_data = {
+    "core.levenshtein": {
+        "sources": [join(directory_path, "src", "core", "levenshtein.pyx")],
+        "include": [np.get_include()],
+    },
+}
+
+
+extensions = []
+
+for name, data in ext_data.items():
+
+    sources = data["sources"]
+    include = data.get("include", [])
+
+    obj = Extension(name, sources=sources, include_dirs=include)
+
+    extensions.append(obj)
+
+setup(
+    name="core",
+    author="Cloves Paiva",
+    package_dir={"core": join(directory_path, "src")},
+    ext_modules=cythonize(extensions),
 )
-
-setup(ext_modules=exts)

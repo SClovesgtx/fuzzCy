@@ -1,4 +1,4 @@
-from core.levenshtein import initialize_matrix
+from core.levenshtein_py import initialize_matrix
 
 
 def test_matrix_dimensions():

@@ -1,7 +1,7 @@
 import pytest
 
 from core.exceptions import ParametersMustBeString
-from core.levenshtein import min_distance_editor
+from core.levenshtein_py import min_distance_editor
 
 strings_pamin_dist = [
     ("", "abc", 3),

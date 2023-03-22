@@ -48,15 +48,16 @@ help:
 #################
 
 build:
-	easycython src/core/levenshtein.pyx
-	python3 setup.py build_ext -if
+	python setup.py build_ext --inplace
+	python setup.py install
 
 clean:
 	rm -rf __pychace__
-	rm -f *.so
+	rm -f src/*.so
 	rm -f src/core/*.c
 	rm -rf build
-	rm -f src/core/*.html
+	rm -rf core.egg-info
+	rm -rf dist
 
 test:
 	$ pytest -v --cache-clear --disable-warnings tests/
