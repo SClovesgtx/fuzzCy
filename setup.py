@@ -14,6 +14,9 @@ ext_data = {
         "sources": [join(directory_path, "fuzzcy", "core", "levenshtein.pyx")],
         "include": [np.get_include()],
     },
+    "fuzzy.fuzzy": {
+        "sources": [join(directory_path, "fuzzcy", "fuzzy", "fuzzy.pyx")],
+    },
 }
 
 
@@ -31,6 +34,9 @@ for name, data in ext_data.items():
 setup(
     name="levenshtein",
     author="Cloves Paiva",
-    package_dir={"core": join(directory_path, "fuzzcy")},
+    package_dir={
+        "core": join(directory_path, "fuzzcy", "core"),
+        "fuzzy": join(directory_path, "fuzzcy", "fuzzy"),
+    },
     ext_modules=cythonize(extensions),
 )
