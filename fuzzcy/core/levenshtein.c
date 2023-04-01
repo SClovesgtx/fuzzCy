@@ -8,7 +8,7 @@
         ],
         "name": "core.levenshtein",
         "sources": [
-            "/home/cloves-paiva/Documentos/personal-projects/FuzzCy/src/core/levenshtein.pyx"
+            "/home/cloves-paiva/Documentos/personal-projects/FuzzCy/fuzzcy/core/levenshtein.pyx"
         ]
     },
     "module_name": "core.levenshtein"
@@ -970,7 +970,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "src/core/levenshtein.pyx",
+  "fuzzcy/core/levenshtein.pyx",
   "stringsource",
 };
 /* MemviewSliceStruct.proto */

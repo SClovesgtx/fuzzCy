@@ -22,7 +22,7 @@
     "editor.defaultFormatter": "ms-python.python",
   },
   "python.analysis.extraPaths": [
-    "${workspaceRoot}/src"
+    "${workspaceRoot}/fuzzcy"
   ],
   "python.formatting.provider": "black",
   "python.analysis.typeCheckingMode": "basic",

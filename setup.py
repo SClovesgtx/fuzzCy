@@ -11,7 +11,7 @@ directory_path = os.path.dirname(os.path.abspath(__file__))
 
 ext_data = {
     "core.levenshtein": {
-        "sources": [join(directory_path, "src", "core", "levenshtein.pyx")],
+        "sources": [join(directory_path, "fuzzcy", "core", "levenshtein.pyx")],
         "include": [np.get_include()],
     },
 }
@@ -29,8 +29,8 @@ for name, data in ext_data.items():
     extensions.append(obj)
 
 setup(
-    name="core",
+    name="levenshtein",
     author="Cloves Paiva",
-    package_dir={"core": join(directory_path, "src")},
+    package_dir={"core": join(directory_path, "fuzzcy")},
     ext_modules=cythonize(extensions),
 )
