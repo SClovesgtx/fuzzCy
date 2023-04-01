@@ -1,7 +1,6 @@
 import pytest
 
-from core.exceptions import ParametersMustBeString
-from core.levenshtein_py import min_distance_editor
+from levenshtein import min_distance_editor
 
 strings_pamin_dist = [
     ("", "abc", 3),
@@ -29,10 +28,8 @@ def test_return_a_integer():
 
 @pytest.mark.parametrize("paramter1,paramter2", invalid_inputs)
 def test_parameters_must_be_strings(paramter1, paramter2):
-    with pytest.raises(ParametersMustBeString) as e_info:
+    with pytest.raises(TypeError) as e_info:
         min_dist = min_distance_editor(paramter1, paramter2)
-
-    assert str(e_info.value) == "Parameters string1 and string2 must be strings."
 
 
 @pytest.mark.parametrize("string1,string2,expected", strings_pamin_dist)
