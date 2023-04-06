@@ -49,15 +49,16 @@ help:
 
 build:
 	python setup.py build_ext --inplace
-	python setup.py install
+	poetry build -f sdist
 
 clean:
 	rm -rf __pychace__
-	rm -f src/*.so
-	rm -f src/core/*.c
+	rm -f fuzzcy/*.so
+	rm -f fuzzcy/core/*.c
 	rm -rf build
-	rm -rf core.egg-info
 	rm -rf dist
+	rm *.c
+	rm *pyx
 
 test:
 	$ pytest -v --cache-clear --disable-warnings tests/
