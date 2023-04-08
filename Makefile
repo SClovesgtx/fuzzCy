@@ -52,7 +52,10 @@ build:
 	poetry build -f sdist
 
 clean:
-	rm -rf __pychace__
+	rm -rf __pycache__
+	rm -rf fuzzcy/__pycache__
+	rm -rf fuzzcy/core/__pycache__
+	rm -rf fuzzcy/fuzzy/__pycache__
 	rm -f fuzzcy/*.so
 	rm -f fuzzcy/core/*.c
 	rm -f fuzzcy/core/*.so
@@ -64,4 +67,4 @@ clean:
 	rm *pyx
 
 test:
-	$ pytest -v --cache-clear  tests/
+	$ pytest -v --cache-clear --disable-warnings tests/
