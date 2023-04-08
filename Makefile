@@ -64,4 +64,4 @@ clean:
 	rm *pyx
 
 test:
-	$ pytest -v --cache-clear --disable-warnings tests/
+	$ pytest -v --cache-clear  tests/
