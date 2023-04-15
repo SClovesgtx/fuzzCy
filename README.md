@@ -1,30 +1,16 @@
 # About
 
-My template for python environment in vscode editor.
+The purpose of this project is to implement in Cython different similarity evaluation algorithms (partial ratio, token sort ratio, etc.) between two strings (fuzzy matching), returning a score that ranges from zero to 100, where zero indicates "not similar" and 100 "completely similar".
 
-# Dependencies
+We do not intend to add third-party libraries, we will implement all relevant algorithms for this project (Levenshtein Distance, Gestalt pattern matching, etc.).
 
-First of all, activate you favorite virtual environment.
+Additionally, we want to add a layer (in green in the figure below) with different applications for such algorithms.
 
-For pre-commit work, install the following libs:
+<img src="./images/architecture_view.png" width="369" height="353" />
 
-- [pre-commit](https://pre-commit.com/)
-- [commitizen](https://pypi.org/project/commitizen/)
-- [Black](https://pypi.org/project/black/#:~:text=Black%20is%20the%20uncompromising%20Python,energy%20for%20more%20important%20matters.)
-- [isort](https://pypi.org/project/isort/)
-- [bandit](https://pypi.org/project/bandit/)
-- [pytest](https://pypi.org/project/pytest/)
 
-To install the hooks:
+Currently, we are in the phase of implementing the red layer, where the different similarity algorithms are strategies for the similarity calculation of the Fuzzy class.
 
-```
-~$ pre-commit install --install-hooks
-```
+<img src="./images/strategy_fuzzy.png" width="593" height="348" />
 
-For makefile in linux:
-
-```
-~$ sudo apt install build-essential
-```
-
-Set environment variable ```PYTHONPATH=src```.
+I'm building this library on Saturdays and streaming it live on my twitch channel [CLovesPy](https://www.twitch.tv/clovespy).
