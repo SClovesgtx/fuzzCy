@@ -1,4 +1,4 @@
-from levenshtein import initialize_matrix
+from fuzzcy.core.levenshtein import initialize_matrix
 
 
 def test_matrix_dimensions():

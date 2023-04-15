@@ -1,6 +1,6 @@
 import pytest
 
-from levenshtein import min_distance_editor
+from fuzzcy.core.levenshtein import min_distance_editor
 
 strings_pamin_dist = [
     ("", "abc", 3),

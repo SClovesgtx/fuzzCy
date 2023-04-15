@@ -52,9 +52,15 @@ build:
 	poetry build -f sdist
 
 clean:
-	rm -rf __pychace__
+	rm -rf __pycache__
+	rm -rf fuzzcy/__pycache__
+	rm -rf fuzzcy/core/__pycache__
+	rm -rf fuzzcy/fuzzy/__pycache__
 	rm -f fuzzcy/*.so
 	rm -f fuzzcy/core/*.c
+	rm -f fuzzcy/core/*.so
+	rm -f fuzzcy/fuzzy/*.c
+	rm -f fuzzcy/fuzzy/*.so
 	rm -rf build
 	rm -rf dist
 	rm *.c
