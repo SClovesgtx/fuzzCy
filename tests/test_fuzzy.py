@@ -2,7 +2,13 @@ import pytest
 
 from fuzzcy.fuzzy.exceptions import InvalidSimilarityMethod
 from fuzzcy.fuzzy.fuzzy import Fuzzy
-from fuzzcy.fuzzy.similarity_algs import SimilarityAlgorithm, SimpleRatio, PartialRatio, TokenSetRatio, TokenSortRatio
+from fuzzcy.fuzzy.similarity_algs import (
+    PartialRatio,
+    SimilarityAlgorithm,
+    SimpleRatio,
+    TokenSetRatio,
+    TokenSortRatio,
+)
 
 
 def test_return_integer():
@@ -32,10 +38,12 @@ def test_throw_invalid_similarity_method():
         == 'The method "wrong method name" do not exist. Please choice a valid method name.'
     )
 
-# def test_valid_score():
-#     fuzz = Fuzzy()
-#     res = fuzz.similarity_score("cloves", "clóvis", "SimpleRatio")
-#     assert res == 67
+
+def test_valid_score():
+    fuzz = Fuzzy()
+    res = fuzz.similarity_score("cloves", "clóvis", "SimpleRatio")
+    assert res == 83
+
 
 def test_set_similarity_alg_method():
     fuzz = Fuzzy()
