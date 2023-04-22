@@ -1,3 +1,10 @@
+'''
+References:
+- JUNITMZ at SemEval-2016 Task 1: Identifying Semantic Similarity Using
+Levenshtein Ratio: https://aclanthology.org/S16-1108.pdf
+- Normalizing the edit distance: https://stackoverflow.com/questions/45783385/normalizing-the-edit-distance
+'''
+
 from fuzzcy.fuzzy.exceptions import InvalidSimilarityMethod
 from fuzzcy.fuzzy.similarity_algs import (
     PartialRatio,

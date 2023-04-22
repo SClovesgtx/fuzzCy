@@ -5,7 +5,7 @@ cpdef long[:, :] initialize_matrix(int rows, int cols):
     return np.zeros((rows, cols), dtype=int)
 
 
-cpdef unsigned long min_distance_editor(str string1, str string2):
+cpdef unsigned long levenshtein_edit_distance(str string1, str string2):
     """
     Return the minimum distance edit between two strings.
     """

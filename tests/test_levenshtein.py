@@ -1,11 +1,15 @@
 import pytest
 
-from fuzzcy.core.levenshtein import min_distance_editor
+from fuzzcy.core.levenshtein import levenshtein_edit_distance
 
-strings_pamin_dist = [
+strings_for_min_dist = [
     ("", "abc", 3),
     ("abc", "", 3),
     ("cloves", "clóvis", 2),
+    ('Levenshtein', 'Lenvinsten', 4),
+    ('Levenshtein', 'Levensthein', 2),
+    ('Levenshtein', 'Levenshten', 1),
+    ('Levenshtein', 'Levenshtein', 0),
     ("abc", "abd", 1),
     ("bbc", "abc", 1),
     ("cloves?", "clóvis!", 3),
@@ -22,17 +26,17 @@ invalid_inputs = [
 
 
 def test_return_a_integer():
-    min_dist = min_distance_editor("cloves", "clóvis")
+    min_dist = levenshtein_edit_distance("cloves", "clóvis")
     assert isinstance(min_dist, int)
 
 
 @pytest.mark.parametrize("paramter1,paramter2", invalid_inputs)
 def test_parameters_must_be_strings(paramter1, paramter2):
     with pytest.raises(TypeError) as e_info:
-        min_dist = min_distance_editor(paramter1, paramter2)
+        min_dist = levenshtein_edit_distance(paramter1, paramter2)
 
 
-@pytest.mark.parametrize("string1,string2,expected", strings_pamin_dist)
-def test_min_distance_of_some_strings_pamin_dist(string1, string2, expected):
-    min_dist = min_distance_editor(string1, string2)
+@pytest.mark.parametrize("string1,string2,expected", strings_for_min_dist)
+def test_min_distance_of_some_strings(string1, string2, expected):
+    min_dist = levenshtein_edit_distance(string1, string2)
     assert min_dist == expected

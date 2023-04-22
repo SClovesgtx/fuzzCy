@@ -41,8 +41,9 @@ def test_throw_invalid_similarity_method():
 
 def test_valid_score():
     fuzz = Fuzzy()
-    res = fuzz.similarity_score("cloves", "clóvis", "SimpleRatio")
-    assert res == 83
+    assert fuzz.similarity_score("cloves", "clóvis", "SimpleRatio") == 67
+    assert fuzz.similarity_score("Brian", "Jesus") == 0
+    assert fuzz.similarity_score('Hello world!', 'Holly grail!') == 42
 
 
 def test_set_similarity_alg_method():
