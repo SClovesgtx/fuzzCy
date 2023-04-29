@@ -10,7 +10,6 @@ class SimilarityAlgorithm(ABC):
 
 
 class SimpleRatio(SimilarityAlgorithm):
-
     def get_similarity_score(self, string1: str, string2: str) -> int:
         """
         Compute similarity of two strings.
@@ -25,27 +24,12 @@ class SimpleRatio(SimilarityAlgorithm):
         >>> SimpleRatio().get_similarity_score('Brian', 'Jesus')
         out: 0
         """
-        max_len: int = max(len(string1), len(string2))
+        max_len: int = max([len(string1), len(string2)])
+        if max_len == 0:
+            return 100
         levenshtein_dist: int = levenshtein_edit_distance(string1, string2)
         edit_dist_ratio: float = float((max_len - levenshtein_dist) / float(max_len))
         return int(round(100 * edit_dist_ratio))
-
-class NormalizedEditSimilarity(SimilarityAlgorithm):
-     def get_similarity_score(self, string1: str, string2: str) -> int:
-        """
-        [Retrivel Strategies for Noisy Text](http://www.cse.lehigh.edu/~lopresti/Publications/1996/sdair96.pdf)
-        """
-        min_len: int = min(len(string1), len(string2))
-        levenshtein_dist: int = levenshtein_edit_distance(string1, string2)
-        return int(round( 1.0 / math.exp( levenshtein_dist / (min_len - levenshtein_dist) ) * 100 ))
-
-class LongestCommonSubsequence(SimilarityAlgorithm):
-
-    def get_similarity_score(self, string1: str, string2: str) -> int:
-        len_sum: int = len(string1) + len(string2)
-        levenshtein_dist = levenshtein_edit_distance(string1, string2)
-        score: float = (len_sum - levenshtein_dist) / float(len_sum)
-        return int(round(100 * score))
 
 
 class PartialRatio(SimilarityAlgorithm):
